@@ -9,15 +9,11 @@
     ToBuyController.$inject = ['ShoppingListCheckOffService'];
     function ToBuyController (ShoppingListCheckOffService) {
         var buyList = this;
-        buyList.isEmpty = false;
 
         buyList.toBuyItems = ShoppingListCheckOffService.getItemsToBuy();
 
         buyList.addItemToBought = function(itemIndex) {
             ShoppingListCheckOffService.addItemToBought(itemIndex);
-            if (buyList.toBuyItems.length === 0) {
-                buyList.isEmpty = true;
-            }
         };
     }
 
